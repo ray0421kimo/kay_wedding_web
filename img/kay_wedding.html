@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0; user-scalable=0;" >
+<title>無標題文件</title>
+<style type="text/css">
+.fx {
+	max-width: auto;
+	max-height: 100vh;
+	overflow:hidden;
+}
+.fx2 {
+	max-width: 100vw;
+	max-height: auto;
+}
+.body-bg {
+	margin: 0px;
+	overflow: hidden;
+}
+</style>
+<!--<script  src="./jquery-3.1.1.min"></script>-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script language="javascript" >
+
+function web_init (){
+	var w = document.body.clientWidth;
+	var h = document.body.clientHeight;
+	var img = document.getElementById("logo");
+	$('html,body').scrollLeft(0);
+	$('html,body').css('opacity',0);
+	$(document).ready(function(e) {
+		if(w>h){
+		
+		img.className ="fx2";
+	}else{
+		img.className="fx";
+		}
+		if($('html,body').scrollLeft()!=0)
+			$('html,body').scrollLeft(0);
+		$('html,body').animate({scrollLeft:300,opacity:1},3000);
+		$("#logo").click(function(){
+				alert("pos: "+$('html,body').scrollLeft());
+			});
+		
+    });
+
+}
+
+</script>
+</head>
+
+<body class="body-bg" onload="web_init()" style="overflow:hidden">
+<img id="logo" src="./img/pic1.jpg" style="display:block" />
+</body>
+</html>
